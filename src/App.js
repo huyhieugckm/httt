@@ -7,7 +7,6 @@ import ReactPlayer from 'react-player';
 import Weather from "./components/weather.component"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'weather-icons/css/weather-icons.css';
-import Form from "./components/form.component";
 //api.openweathermap.org/data/2.5/weather?q=London,uk&appid=
 //const api_key = "154083a3593ffca1fd6b314c541bcf0b";
 class App extends Component{
@@ -72,10 +71,6 @@ class App extends Component{
     }
 
     getWeather = async () => {
-        /*e.preventDefault();
-        const country = e.target.country.value;
-        const city = e.target.city.value;*/
-        if (/*country && city*/true) {
             const api_call = await
                 fetch(
                     'http://api.openweathermap.org/data/2.5/weather?q=hanoi,vn&appid=bf97b8a697f657e96c6a1432fe66756e');
@@ -92,11 +87,6 @@ class App extends Component{
             });
             this.get_WeatherIcon(this.weatherIcon, response.weather[0].id);
             console.log(response);
-        } else {
-        this.setState({
-            error: true
-        });
-}
     }
 
     handleChange(event) {
@@ -110,7 +100,6 @@ class App extends Component{
                 </Toolbar>
             </AppBar>
             <Toolbar />
-            <Form loadweather={this.getWeather} error={this.state.error} />
             <Weather
                 city={this.state.city}
                 weatherIcon={this.state.icon}
