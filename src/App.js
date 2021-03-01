@@ -77,10 +77,10 @@ class App extends Component{
         if (city) {
             const api_call = await
                 fetch(
-                    'http://api.openweathermap.org/data/2.5/weather?q=${city},vn&appid=bf97b8a697f657e96c6a1432fe66756e');
+                    'http://api.openweathermap.org/data/2.5/weather?q=HaNoi&appid=bf97b8a697f657e96c6a1432fe66756e');
             const response = await api_call.json();
             this.setState({
-                city: `${response.name}, ${response.sys.country}`,
+                city: response.name,
                 country: response.sys.country,
                 main: response.weather[0].main,
                 celsius: this.calCel(response.main.temp),
